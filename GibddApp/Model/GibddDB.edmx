@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище GibddBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverId" />
+          </Key>
+          <Property Name="DriverId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverSecondName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverMiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DriverPassportSerial" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="DriverPassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DriverPostcode" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DriverTownId" Type="int" />
+          <Property Name="DriverAddress" Type="nvarchar(max)" />
+          <Property Name="DriverTownLifeId" Type="int" />
+          <Property Name="DriverAddressLife" Type="nvarchar(max)" />
+          <Property Name="DriverCompanyId" Type="int" />
+          <Property Name="DriverJobId" Type="int" />
+          <Property Name="DriverPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DriverEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="DriverPhoto" Type="nvarchar(max)" />
+          <Property Name="DriverDescription" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DriverArchive">
+          <Key>
+            <PropertyRef Name="DriverArchiveId" />
+          </Key>
+          <Property Name="DriverArchiveId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DriverId" Type="int" />
+          <Property Name="DriverFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverSecondName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverMiddleNam" Type="nvarchar" MaxLength="50" />
+          <Property Name="DriverPassportSerial" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="DriverPassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DriverPostcode" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="DriverTownId" Type="int" />
+          <Property Name="DriverAddress" Type="nvarchar(max)" />
+          <Property Name="DriverTownLifeId" Type="int" />
+          <Property Name="DriverAddressLife" Type="nvarchar(max)" />
+          <Property Name="DriverCompanyId" Type="int" />
+          <Property Name="DriverJobId" Type="int" />
+          <Property Name="DriverPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DriverEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="DriverPhoto" Type="nvarchar(max)" />
+          <Property Name="DriverDescrition" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="JobList">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="TownId" />
+          </Key>
+          <Property Name="TownId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TownName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserLogin" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserPin" Type="nvarchar" MaxLength="4" />
+        </EntityType>
+        <Association Name="FK_Driver_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_JobList">
+          <End Role="JobList" Type="Self.JobList" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobList">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverJobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_Town">
+          <End Role="Town" Type="Self.Town" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="TownId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverTownId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_Town1">
+          <End Role="Town" Type="Self.Town" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="TownId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverTownLifeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DriverArchive_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+          <End Role="DriverArchive" Type="Self.DriverArchive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="DriverId" />
+            </Principal>
+            <Dependent Role="DriverArchive">
+              <PropertyRef Name="DriverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище GibddBDModelContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DriverArchive" EntityType="Self.DriverArchive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobList" EntityType="Self.JobList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Town" EntityType="Self.Town" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Driver_Company" Association="Self.FK_Driver_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_JobList" Association="Self.FK_Driver_JobList">
+            <End Role="JobList" EntitySet="JobList" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_Town" Association="Self.FK_Driver_Town">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_Town1" Association="Self.FK_Driver_Town1">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DriverArchive_Driver" Association="Self.FK_DriverArchive_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="DriverArchive" EntitySet="DriverArchive" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GibddBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Driver_Company" FromRole="Company" ToRole="Driver" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="DriverId" />
+          </Key>
+          <Property Name="DriverId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverSecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DriverPassportSerial" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPostcode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverTownId" Type="Int32" />
+          <Property Name="DriverAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverTownLifeId" Type="Int32" />
+          <Property Name="DriverAddressLife" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverCompanyId" Type="Int32" />
+          <Property Name="DriverJobId" Type="Int32" />
+          <Property Name="DriverPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DriverPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Driver_Company" FromRole="Driver" ToRole="Company" />
+          <NavigationProperty Name="JobList" Relationship="Self.FK_Driver_JobList" FromRole="Driver" ToRole="JobList" />
+          <NavigationProperty Name="Town" Relationship="Self.FK_Driver_Town" FromRole="Driver" ToRole="Town" />
+          <NavigationProperty Name="Town1" Relationship="Self.FK_Driver_Town1" FromRole="Driver" ToRole="Town" />
+          <NavigationProperty Name="DriverArchive" Relationship="Self.FK_DriverArchive_Driver" FromRole="Driver" ToRole="DriverArchive" />
+        </EntityType>
+        <EntityType Name="DriverArchive">
+          <Key>
+            <PropertyRef Name="DriverArchiveId" />
+          </Key>
+          <Property Name="DriverArchiveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DriverId" Type="Int32" />
+          <Property Name="DriverFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverSecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverMiddleNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DriverPassportSerial" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPostcode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverTownId" Type="Int32" />
+          <Property Name="DriverAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverTownLifeId" Type="Int32" />
+          <Property Name="DriverAddressLife" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverCompanyId" Type="Int32" />
+          <Property Name="DriverJobId" Type="Int32" />
+          <Property Name="DriverPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DriverPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DriverDescrition" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_DriverArchive_Driver" FromRole="DriverArchive" ToRole="Driver" />
+        </EntityType>
+        <EntityType Name="JobList">
+          <Key>
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Driver_JobList" FromRole="JobList" ToRole="Driver" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="TownId" />
+          </Key>
+          <Property Name="TownId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TownName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Driver_Town" FromRole="Town" ToRole="Driver" />
+          <NavigationProperty Name="Driver1" Relationship="Self.FK_Driver_Town1" FromRole="Town" ToRole="Driver" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserLogin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPin" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Driver_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="CompanyId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverCompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_JobList">
+          <End Role="JobList" Type="Self.JobList" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobList">
+              <PropertyRef Name="JobId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverJobId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_Town">
+          <End Role="Town" Type="Self.Town" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="TownId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverTownId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Driver_Town1">
+          <End Role="Town" Type="Self.Town" Multiplicity="0..1" />
+          <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="TownId" />
+            </Principal>
+            <Dependent Role="Driver">
+              <PropertyRef Name="DriverTownLifeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DriverArchive_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+          <End Role="DriverArchive" Type="Self.DriverArchive" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="DriverId" />
+            </Principal>
+            <Dependent Role="DriverArchive">
+              <PropertyRef Name="DriverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GibddBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Company" EntityType="Self.Company" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" />
+          <EntitySet Name="DriverArchive" EntityType="Self.DriverArchive" />
+          <EntitySet Name="JobList" EntityType="Self.JobList" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Town" EntityType="Self.Town" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Driver_Company" Association="Self.FK_Driver_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_JobList" Association="Self.FK_Driver_JobList">
+            <End Role="JobList" EntitySet="JobList" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_Town" Association="Self.FK_Driver_Town">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Driver_Town1" Association="Self.FK_Driver_Town1">
+            <End Role="Town" EntitySet="Town" />
+            <End Role="Driver" EntitySet="Driver" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DriverArchive_Driver" Association="Self.FK_DriverArchive_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="DriverArchive" EntitySet="DriverArchive" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище GibddBDModelContainer" CdmEntityContainer="GibddBDEntities">
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="GibddBDModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Driver">
+            <EntityTypeMapping TypeName="GibddBDModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+                <ScalarProperty Name="DriverFirstName" ColumnName="DriverFirstName" />
+                <ScalarProperty Name="DriverSecondName" ColumnName="DriverSecondName" />
+                <ScalarProperty Name="DriverMiddleName" ColumnName="DriverMiddleName" />
+                <ScalarProperty Name="DriverPassportSerial" ColumnName="DriverPassportSerial" />
+                <ScalarProperty Name="DriverPassportNumber" ColumnName="DriverPassportNumber" />
+                <ScalarProperty Name="DriverPostcode" ColumnName="DriverPostcode" />
+                <ScalarProperty Name="DriverTownId" ColumnName="DriverTownId" />
+                <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+                <ScalarProperty Name="DriverTownLifeId" ColumnName="DriverTownLifeId" />
+                <ScalarProperty Name="DriverAddressLife" ColumnName="DriverAddressLife" />
+                <ScalarProperty Name="DriverCompanyId" ColumnName="DriverCompanyId" />
+                <ScalarProperty Name="DriverJobId" ColumnName="DriverJobId" />
+                <ScalarProperty Name="DriverPhone" ColumnName="DriverPhone" />
+                <ScalarProperty Name="DriverEmail" ColumnName="DriverEmail" />
+                <ScalarProperty Name="DriverPhoto" ColumnName="DriverPhoto" />
+                <ScalarProperty Name="DriverDescription" ColumnName="DriverDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DriverArchive">
+            <EntityTypeMapping TypeName="GibddBDModel.DriverArchive">
+              <MappingFragment StoreEntitySet="DriverArchive">
+                <ScalarProperty Name="DriverArchiveId" ColumnName="DriverArchiveId" />
+                <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+                <ScalarProperty Name="DriverFirstName" ColumnName="DriverFirstName" />
+                <ScalarProperty Name="DriverSecondName" ColumnName="DriverSecondName" />
+                <ScalarProperty Name="DriverMiddleNam" ColumnName="DriverMiddleNam" />
+                <ScalarProperty Name="DriverPassportSerial" ColumnName="DriverPassportSerial" />
+                <ScalarProperty Name="DriverPassportNumber" ColumnName="DriverPassportNumber" />
+                <ScalarProperty Name="DriverPostcode" ColumnName="DriverPostcode" />
+                <ScalarProperty Name="DriverTownId" ColumnName="DriverTownId" />
+                <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+                <ScalarProperty Name="DriverTownLifeId" ColumnName="DriverTownLifeId" />
+                <ScalarProperty Name="DriverAddressLife" ColumnName="DriverAddressLife" />
+                <ScalarProperty Name="DriverCompanyId" ColumnName="DriverCompanyId" />
+                <ScalarProperty Name="DriverJobId" ColumnName="DriverJobId" />
+                <ScalarProperty Name="DriverPhone" ColumnName="DriverPhone" />
+                <ScalarProperty Name="DriverEmail" ColumnName="DriverEmail" />
+                <ScalarProperty Name="DriverPhoto" ColumnName="DriverPhoto" />
+                <ScalarProperty Name="DriverDescrition" ColumnName="DriverDescrition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobList">
+            <EntityTypeMapping TypeName="GibddBDModel.JobList">
+              <MappingFragment StoreEntitySet="JobList">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="JobName" ColumnName="JobName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GibddBDModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Town">
+            <EntityTypeMapping TypeName="GibddBDModel.Town">
+              <MappingFragment StoreEntitySet="Town">
+                <ScalarProperty Name="TownId" ColumnName="TownId" />
+                <ScalarProperty Name="TownName" ColumnName="TownName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="GibddBDModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserPin" ColumnName="UserPin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

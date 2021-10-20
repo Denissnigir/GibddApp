@@ -1,0 +1,83 @@
+﻿<Window x:Class="GibddApp.WIndows.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GibddApp.WIndows"
+        mc:Ignorable="d"
+        Title="ГИБДД | Основное меню" MinHeight="450" MinWidth="800" Height="450" Width="800" Icon="\Logo\gibdd_logo.png">
+    <Grid Background="#FFD1EEFC" >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#FFD1EEFC" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="\Logo\gibdd_logo.png" Margin="0, 5, 10, 5"/>
+                <TextBlock Text="Госавтоинспекция" FontSize="18" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Button HorizontalAlignment="Right" Content="Выйти" Margin="0, 0, 10, 0" Height="30" Width="65" FontSize="16" Click="Button_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <ListBox x:Name="DriverList">
+                <ListBox.Resources>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListBox.Resources>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="#FFB5D5CA">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.35*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0.7*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Height="93" Margin="10, 5, 0, 5" Grid.Column="0">
+                                <Image.Source>
+                                    <Binding Path="DriverPhoto">
+
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+
+                            <StackPanel Orientation="Vertical" Grid.Column="1">
+                                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                                    <TextBlock Text="{Binding DriverFirstName}" Margin="5, 10, 0, 0" FontSize="18"/>
+                                    <TextBlock Text="{Binding DriverMiddleName}" Margin="5, 10, 0, 0" FontSize="18"/>
+                                    <TextBlock Text="{Binding DriverSecondName}" Margin="5, 10, 0, 0" FontSize="18"/>
+                                    <TextBlock Text="GUID: #" FontSize="12" Margin="5, 16, 0, 0"/>
+                                    <TextBlock Text="{Binding DriverId}" FontSize="12" Margin="0, 16, 0, 0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                                    <TextBlock Text="{Binding JobList.JobName}" FontSize="11" Margin="5, 0, 0, 0"/>
+                                    <TextBlock Text="+7" FontSize="11" Margin="5, 0, 0, 0"/>
+                                    <TextBlock Text="{Binding DriverPhone}" FontSize="11"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2">
+                                <Button Content="Открыть водителя" Height="30" Margin="10, 10" Name="SoftButton" Background="#FFFFFCD6"/>
+                                <Button Content="Удалить водителя" Height="30" Margin="10, 10"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button FontSize="16" Content="Добавить водителя" Height="35" Width="215" Click="Button_Click_1"/>
+            <Button Grid.Column="1" FontSize="16" Content="Выйти из учётной записи" Height="35" Width="215" Click="Button_Click_2"/>
+
+        </Grid>
+    </Grid>
+</Window>

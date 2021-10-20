@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="732d245bd3954fcfbcee3321c89fa954" Name="Diagram1">
+        <EntityTypeShape EntityType="GibddBDModel.Company" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.Driver" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.DriverArchive" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.JobList" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.Town" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.User" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="GibddBDModel.FK_Driver_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="GibddBDModel.FK_Driver_JobList" ManuallyRouted="false" />
+        <AssociationConnector Association="GibddBDModel.FK_Driver_Town" ManuallyRouted="false" />
+        <AssociationConnector Association="GibddBDModel.FK_Driver_Town1" ManuallyRouted="false" />
+        <AssociationConnector Association="GibddBDModel.FK_DriverArchive_Driver" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
