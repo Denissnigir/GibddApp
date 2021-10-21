@@ -65,7 +65,7 @@ namespace GibddApp.WIndows
             if (pathPhoto != null)
             {
                 string photoPath = $@"\photo\{namePhoto}";
-                File.Copy(pathPhoto, $@"..\..\..\GibddApp{photoPath}");
+                File.Copy(pathPhoto, $@"..\..{photoPath}");
                 driver.DriverPhoto = photoPath;
             }
             driver.DriverDescription = DriverDescriptionTB.Text;
