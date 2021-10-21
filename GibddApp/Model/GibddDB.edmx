@@ -45,7 +45,7 @@
           <Property Name="DriverMiddleNam" Type="nvarchar" MaxLength="50" />
           <Property Name="DriverPassportSerial" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="DriverPassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
-          <Property Name="DriverPostcode" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="DriverPostcode" Type="nvarchar" MaxLength="60" />
           <Property Name="DriverTownId" Type="int" />
           <Property Name="DriverAddress" Type="nvarchar(max)" />
           <Property Name="DriverTownLifeId" Type="int" />
@@ -230,7 +230,7 @@
           <Property Name="DriverMiddleNam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DriverPassportSerial" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DriverPassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DriverPostcode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPostcode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="DriverTownId" Type="Int32" />
           <Property Name="DriverAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DriverTownLifeId" Type="Int32" />
@@ -339,7 +339,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GibddBDEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GibddDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Company" EntityType="Self.Company" />
           <EntitySet Name="Driver" EntityType="Self.Driver" />
           <EntitySet Name="DriverArchive" EntityType="Self.DriverArchive" />
@@ -373,7 +373,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище GibddBDModelContainer" CdmEntityContainer="GibddBDEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище GibddBDModelContainer" CdmEntityContainer="GibddDBEntities">
           <EntitySetMapping Name="Company">
             <EntityTypeMapping TypeName="GibddBDModel.Company">
               <MappingFragment StoreEntitySet="Company">

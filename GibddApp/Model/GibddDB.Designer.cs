@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\0dmin\source\repos\GibddApp\GibddApp\Model\GibddDB.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\Model\GibddDB.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.
