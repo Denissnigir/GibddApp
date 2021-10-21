@@ -22,7 +22,7 @@
           <Property Name="DriverMiddleName" Type="nvarchar" MaxLength="50" />
           <Property Name="DriverPassportSerial" Type="nvarchar" MaxLength="4" Nullable="false" />
           <Property Name="DriverPassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
-          <Property Name="DriverPostcode" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DriverPostcode" Type="nvarchar" MaxLength="6" />
           <Property Name="DriverTownId" Type="int" />
           <Property Name="DriverAddress" Type="nvarchar(max)" />
           <Property Name="DriverTownLifeId" Type="int" />
@@ -85,7 +85,7 @@
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="UserLogin" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="UserPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="UserPin" Type="nvarchar" MaxLength="4" />
@@ -202,7 +202,7 @@
           <Property Name="DriverMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DriverPassportSerial" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DriverPassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DriverPostcode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverPostcode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="DriverTownId" Type="Int32" />
           <Property Name="DriverAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DriverTownLifeId" Type="Int32" />
@@ -274,7 +274,7 @@
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="UserLogin" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserPin" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />

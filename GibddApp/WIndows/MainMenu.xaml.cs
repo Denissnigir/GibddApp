@@ -35,6 +35,13 @@ namespace GibddApp.WIndows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var idCount = Context._con.User.Count();
+            for (int i = 1; i <= idCount; i++)
+            {
+                var user = Context._con.User.Where(p => p.UserId == i).FirstOrDefault();
+                user.UserPin = null;
+            }
+            Context._con.SaveChanges();
             Application.Current.Shutdown();
         }
 
@@ -42,6 +49,7 @@ namespace GibddApp.WIndows
         {
             DriverAdd driverAdd = new DriverAdd();
             driverAdd.Show();
+            this.Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -51,6 +59,17 @@ namespace GibddApp.WIndows
             this.Close();
         }
 
-      
+        private void OpenDriver_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteDriver_Click(object sender, RoutedEventArgs e)
+        {
+            var driverForDelete = DriverList.SelectedItems.Cast<Driver>().ToList();
+            Context._con.Driver.RemoveRange(driverForDelete);
+            Context._con.SaveChanges();
+            DriverList.ItemsSource = Context._con.Driver.ToList();
+        }
     }
 }

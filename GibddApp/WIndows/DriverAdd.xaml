@@ -46,23 +46,23 @@
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="5, 10, 0, 0" Grid.Column="1">
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEnabled="False"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <ComboBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <ComboBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <ComboBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <ComboBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <TextBox x:Name="IdCounterTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEnabled="False"/>
+                <TextBox x:Name="DriverFNTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <TextBox Name="DriverSNTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <TextBox Name="DriverPassSerialTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <TextBox Name="DriverPassNumberTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <ComboBox Name="TownListCB" DisplayMemberPath="TownName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True"/>
+                <TextBox Name="DriverAddressTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <ComboBox Name="TownLifeListCB" DisplayMemberPath="TownName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True"/>
+                <TextBox Name="DriverAddressLifeTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <ComboBox Name="CompanyCB" DisplayMemberPath="CompanyName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True"/>
+                <ComboBox Name="JobCB" DisplayMemberPath="JobName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True" SelectedIndex="1"/>
+                <TextBox Name="DriverPhoneTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <TextBox Name="DriverEmailTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
                 <TextBox HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
+                <TextBox Name="DriverDescriptionTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
             </StackPanel>
         </Grid>
-        <Button Grid.Row="2" Height="35" Width="250" Content="Добавить водителя" FontSize="18"/>
+        <Button Grid.Row="2" Height="35" Width="250" Content="Добавить водителя" FontSize="18" Click="Button_Click_1"/>
     </Grid>
 </Window>
