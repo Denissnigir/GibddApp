@@ -54,3 +54,5 @@ C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\GibddApp.csproj.G
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\GibddApp.csproj.CopyComplete
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\GibddApp.exe
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\GibddApp.pdb
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\DriverChange.g.cs
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\DriverChange.baml

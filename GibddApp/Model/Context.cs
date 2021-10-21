@@ -8,6 +8,6 @@ namespace GibddApp.Model
 {
     public static class Context
     {
-        public static GibddBDEntities _con = new GibddBDEntities();
+        public static GibddDBEntities _con = new GibddDBEntities();
     }
 }

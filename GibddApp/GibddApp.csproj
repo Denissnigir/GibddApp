@@ -105,6 +105,9 @@
     <Compile Include="WIndows\DriverAdd.xaml.cs">
       <DependentUpon>DriverAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WIndows\DriverChange.xaml.cs">
+      <DependentUpon>DriverChange.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WIndows\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="WIndows\DriverAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WIndows\DriverChange.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

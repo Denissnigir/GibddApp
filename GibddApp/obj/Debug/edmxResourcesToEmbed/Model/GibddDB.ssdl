@@ -40,7 +40,7 @@
     <Property Name="DriverMiddleNam" Type="nvarchar" MaxLength="50" />
     <Property Name="DriverPassportSerial" Type="nvarchar" MaxLength="4" Nullable="false" />
     <Property Name="DriverPassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
-    <Property Name="DriverPostcode" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="DriverPostcode" Type="nvarchar" MaxLength="60" />
     <Property Name="DriverTownId" Type="int" />
     <Property Name="DriverAddress" Type="nvarchar(max)" />
     <Property Name="DriverTownLifeId" Type="int" />

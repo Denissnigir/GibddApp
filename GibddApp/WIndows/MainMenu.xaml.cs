@@ -61,15 +61,32 @@ namespace GibddApp.WIndows
 
         private void OpenDriver_Click(object sender, RoutedEventArgs e)
         {
-
+            if (DriverList.SelectedItem != null)
+            {
+                var driverForUpdate = (Driver)DriverList.SelectedItem;
+                DriverChange driverChange = new DriverChange(driverForUpdate);
+                driverChange.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Сначала кликните по водителю!)");
+            }
         }
 
         private void DeleteDriver_Click(object sender, RoutedEventArgs e)
         {
-            var driverForDelete = DriverList.SelectedItems.Cast<Driver>().ToList();
-            Context._con.Driver.RemoveRange(driverForDelete);
-            Context._con.SaveChanges();
-            DriverList.ItemsSource = Context._con.Driver.ToList();
+            if(DriverList.SelectedItem != null)
+            {
+                var driverForDelete = DriverList.SelectedItems.Cast<Driver>().ToList();
+                Context._con.Driver.RemoveRange(driverForDelete);
+                Context._con.SaveChanges();
+                DriverList.ItemsSource = Context._con.Driver.ToList();
+            }
+            else
+            {
+                MessageBox.Show("Сначала кликните по водителю!)");
+            }
         }
     }
 }
