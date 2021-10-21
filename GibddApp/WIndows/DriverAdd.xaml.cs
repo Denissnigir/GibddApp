@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GibddApp.Model;
+using Microsoft.Win32;
 
 namespace GibddApp.WIndows
 {
@@ -20,6 +22,9 @@ namespace GibddApp.WIndows
     /// </summary>
     public partial class DriverAdd : Window
     {
+        string pathPhoto = null;
+        string namePhoto = null;
+
         public DriverAdd()
         {
             InitializeComponent();
@@ -57,6 +62,12 @@ namespace GibddApp.WIndows
             driver.DriverJobId = JobCB.SelectedIndex + 1;
             driver.DriverPhone = DriverPhoneTB.Text;
             driver.DriverEmail = DriverEmailTB.Text;
+            if (pathPhoto != null)
+            {
+                string photoPath = $@"\photo\{namePhoto}";
+                File.Copy(pathPhoto, $@"..\..\..\GibddApp{photoPath}");
+                driver.DriverPhoto = photoPath;
+            }
             driver.DriverDescription = DriverDescriptionTB.Text;
 
             Context._con.Driver.Add(driver);
@@ -66,6 +77,21 @@ namespace GibddApp.WIndows
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
             this.Close();
+        }
+
+        private void ChoosePhotoBTN_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if ((bool)openFileDialog.ShowDialog())
+            {
+                pathPhoto = openFileDialog.FileName;
+                if (pathPhoto != null)
+                {
+                    namePhoto = pathPhoto.Split('\\')[pathPhoto.Split('\\').Length - 1];
+
+                    ChoosePhotoBTN.Content = $"{namePhoto}";
+                }
+            }
         }
     }
 }

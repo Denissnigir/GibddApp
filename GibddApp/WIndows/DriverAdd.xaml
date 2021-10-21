@@ -56,10 +56,10 @@
                 <ComboBox Name="TownLifeListCB" DisplayMemberPath="TownName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True"/>
                 <TextBox Name="DriverAddressLifeTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
                 <ComboBox Name="CompanyCB" DisplayMemberPath="CompanyName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True"/>
-                <ComboBox Name="JobCB" DisplayMemberPath="JobName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True" SelectedIndex="1"/>
+                <ComboBox Name="JobCB" DisplayMemberPath="JobName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True"/>
                 <TextBox Name="DriverPhoneTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
                 <TextBox Name="DriverEmailTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox HorizontalAlignment="Left" Width="250" Height="20"/>
+                <Button Content="Выбрать фото" Click="ChoosePhotoBTN_Click" Name="ChoosePhotoBTN" HorizontalAlignment="Left" Width="250" Height="20"/>
                 <TextBox Name="DriverDescriptionTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
             </StackPanel>
         </Grid>
