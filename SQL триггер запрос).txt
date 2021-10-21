@@ -1,0 +1,11 @@
+CREATE TRIGGER OnDriverDelete
+ON Driver
+AFTER DELETE AS
+
+BEGIN
+
+INSERT INTO DriverArchive
+(DriverId, DriverFirstName, DriverSecondName, DriverMiddleNam, DriverPassportSerial, DriverPassportNumber, DriverTownId, DriverAddress, DriverTownLifeId, DriverAddressLife, DriverCompanyId, DriverJobId, DriverPhone, DriverEmail, DriverPhoto, DriverDescrition)
+SELECT DriverId, DriverFirstName, DriverSecondName, DriverMiddleName, DriverPassportSerial, DriverPassportNumber, DriverTownId, DriverAddress, DriverTownLifeId, DriverAddressLife, DriverCompanyId, DriverJobId, DriverPhone, DriverEmail, DriverPhoto, DriverDescription
+FROM Deleted
+END
