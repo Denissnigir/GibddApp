@@ -177,7 +177,7 @@ namespace GibddApp.WIndows
 
                 if (pathPhoto != null)
                 {
-                    namePhoto = pathPhoto.Split('\\')[pathPhoto.Split('\\').Length - 1];
+                    namePhoto = pathPhoto.Split('\\').Last();
 
                     ChoosePhotoBTN.Content = $"{namePhoto}";
                 }

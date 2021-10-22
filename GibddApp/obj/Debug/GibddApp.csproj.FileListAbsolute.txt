@@ -56,3 +56,5 @@ C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\GibddApp.pdb
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\DriverChange.g.cs
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\DriverChange.baml
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\GibddApp.csprojAssemblyReference.cache
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\bin\Debug\ClassLibrary1.dll
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\bin\Debug\ClassLibrary1.pdb

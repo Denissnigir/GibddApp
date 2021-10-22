@@ -27,7 +27,6 @@ namespace GibddApp.WIndows
         string namePhoto = null;
         char format1 = 'f';
         char format2 = 'f';
-        BitmapImage bitmapImage;
 
         public DriverAdd()
         {
@@ -91,7 +90,6 @@ namespace GibddApp.WIndows
                 try
                 {
                     File.Copy(pathPhoto, $@"..\..{photoPath}");
-                    
                 }
                 catch
                 {
@@ -113,7 +111,12 @@ namespace GibddApp.WIndows
         private void ChoosePhotoBTN_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            
+            if ((bool)openFileDialog.ShowDialog())
+            {
+                pathPhoto = openFileDialog.FileName;
+                namePhoto = pathPhoto.Split('\\').Last();
+                ChoosePhotoBTN.Content = namePhoto;
+            }
         }
     }
 }

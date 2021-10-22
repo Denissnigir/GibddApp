@@ -11,7 +11,9 @@ namespace GibddApp.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.IO;
+    using System.Windows.Media.Imaging;
+
     public partial class Driver
     {
         public int DriverId { get; set; }
@@ -37,5 +39,17 @@ namespace GibddApp.Model
         public virtual JobList JobList { get; set; }
         public virtual Town Town { get; set; }
         public virtual Town Town1 { get; set; }
+        
+        public byte[] image
+        {
+            get
+            {
+                byte[] filename = File.ReadAllBytes($@"..\..{DriverPhoto}");
+                return filename;
+             }
+            
+        }
+       
     }
+    
 }

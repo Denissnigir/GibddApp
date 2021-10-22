@@ -43,7 +43,7 @@ namespace GibddApp.WIndows
         {
             dispatcherTimeCounter += new TimeSpan(0, 0, 1);
 
-            if(dispatcherTimeCounter >= new TimeSpan(0, 1, 0))
+            if (dispatcherTimeCounter >= new TimeSpan(0, 1, 0))
             {
                 dispatcherTimer.Stop();
                 MainWindow mainWindow = new MainWindow();
@@ -66,6 +66,7 @@ namespace GibddApp.WIndows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            dispatcherTimer.Stop();
             DriverAdd driverAdd = new DriverAdd();
             driverAdd.Show();
             this.Close();
@@ -73,6 +74,7 @@ namespace GibddApp.WIndows
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            dispatcherTimer.Stop();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
@@ -82,6 +84,7 @@ namespace GibddApp.WIndows
         {
             if (DriverList.SelectedItem != null)
             {
+                dispatcherTimer.Stop();
                 var driverForUpdate = (Driver)DriverList.SelectedItem;
                 DriverChange driverChange = new DriverChange(driverForUpdate);
                 driverChange.Show();
@@ -95,7 +98,7 @@ namespace GibddApp.WIndows
 
         private void DeleteDriver_Click(object sender, RoutedEventArgs e)
         {
-            if(DriverList.SelectedItem != null)
+            if (DriverList.SelectedItem != null)
             {
                 var driverForDelete = DriverList.SelectedItems.Cast<Driver>().ToList();
                 Context._con.Driver.RemoveRange(driverForDelete);
@@ -112,5 +115,7 @@ namespace GibddApp.WIndows
         {
             dispatcherTimeCounter = new TimeSpan(0, 0, 0);
         }
+
+        
     }
 }

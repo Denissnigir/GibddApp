@@ -60,6 +60,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -209,7 +210,6 @@
     <Resource Include="photo\009-angry-6.png" />
     <Resource Include="photo\010-drool.png" />
     <Resource Include="photo\011-tired-2.png" />
-    <Resource Include="photo\012-tongue-7.png" />
     <Resource Include="photo\013-tongue-6.png" />
     <Resource Include="photo\014-tongue-5.png" />
     <Resource Include="photo\015-smile-1.png" />
@@ -433,6 +433,12 @@
       <DependentUpon>GibddDB.edmx</DependentUpon>
       <LastGenOutput>GibddDB.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{25770e30-f51c-43d8-be7a-1d823295375d}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

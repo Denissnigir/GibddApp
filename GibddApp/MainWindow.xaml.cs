@@ -31,14 +31,10 @@ namespace GibddApp
         public static string curPin;
         public List<User> userData = new List<User>();
 
+
         public MainWindow()
         {
             InitializeComponent();
-
-
-            var images = Directory.GetFiles(@"C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\photo");
-
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
