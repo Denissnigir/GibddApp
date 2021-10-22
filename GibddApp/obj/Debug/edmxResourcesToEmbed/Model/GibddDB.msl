@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище GibddBDModelContainer" CdmEntityContainer="GibddDBEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище GibddBDModelContainer" CdmEntityContainer="GibddBDEntities">
     <EntitySetMapping Name="Company">
       <EntityTypeMapping TypeName="GibddBDModel.Company">
         <MappingFragment StoreEntitySet="Company">
@@ -28,6 +28,7 @@
           <ScalarProperty Name="DriverPhone" ColumnName="DriverPhone" />
           <ScalarProperty Name="DriverEmail" ColumnName="DriverEmail" />
           <ScalarProperty Name="DriverPhoto" ColumnName="DriverPhoto" />
+          <ScalarProperty Name="DriverPhotoBin" ColumnName="DriverPhotoBin" />
           <ScalarProperty Name="DriverDescription" ColumnName="DriverDescription" />
         </MappingFragment>
       </EntityTypeMapping>

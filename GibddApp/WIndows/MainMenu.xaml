@@ -23,7 +23,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <ListBox x:Name="DriverList">
+            <ListBox x:Name="DriverList" ScrollViewer.ScrollChanged="DriverList_ScrollChanged">
                 <ListBox.Resources>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

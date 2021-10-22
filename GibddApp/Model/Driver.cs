@@ -14,12 +14,6 @@ namespace GibddApp.Model
     
     public partial class Driver
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Driver()
-        {
-            this.DriverArchive = new HashSet<DriverArchive>();
-        }
-    
         public int DriverId { get; set; }
         public string DriverFirstName { get; set; }
         public string DriverSecondName { get; set; }
@@ -36,13 +30,12 @@ namespace GibddApp.Model
         public string DriverPhone { get; set; }
         public string DriverEmail { get; set; }
         public string DriverPhoto { get; set; }
+        public byte[] DriverPhotoBin { get; set; }
         public string DriverDescription { get; set; }
     
         public virtual Company Company { get; set; }
         public virtual JobList JobList { get; set; }
         public virtual Town Town { get; set; }
         public virtual Town Town1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DriverArchive> DriverArchive { get; set; }
     }
 }

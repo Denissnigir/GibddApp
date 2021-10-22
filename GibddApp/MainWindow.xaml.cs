@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GibddApp.WIndows;
 using GibddApp.Model;
+using System.IO;
 
 namespace GibddApp
 {
@@ -33,6 +34,10 @@ namespace GibddApp
         public MainWindow()
         {
             InitializeComponent();
+
+
+            var images = Directory.GetFiles(@"C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\photo");
+
 
         }
 

@@ -4,19 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="98f42bab60a64ab68e41f9f0ffa5ff32" Name="Diagram1">
+      <Diagram DiagramId="721b2fd3b4f844ae9f897e285a1a19b1" Name="Diagram1">
         <EntityTypeShape EntityType="GibddBDModel.Company" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GibddBDModel.Driver" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GibddBDModel.DriverArchive" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.DriverArchive" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GibddBDModel.JobList" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GibddBDModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GibddBDModel.Town" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GibddBDModel.User" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GibddBDModel.User" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
         <AssociationConnector Association="GibddBDModel.FK_Driver_Company" ManuallyRouted="false" />
         <AssociationConnector Association="GibddBDModel.FK_Driver_JobList" ManuallyRouted="false" />
         <AssociationConnector Association="GibddBDModel.FK_Driver_Town" ManuallyRouted="false" />
         <AssociationConnector Association="GibddBDModel.FK_Driver_Town1" ManuallyRouted="false" />
-        <AssociationConnector Association="GibddBDModel.FK_DriverArchive_Driver" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -32,7 +32,5 @@ namespace GibddApp.Model
         public string DriverEmail { get; set; }
         public string DriverPhoto { get; set; }
         public string DriverDescrition { get; set; }
-    
-        public virtual Driver Driver { get; set; }
     }
 }

@@ -18,7 +18,7 @@
                 <Image Source="\Logo\gibdd_logo.png" Margin="0, 5, 10, 5"/>
                 <TextBlock Text="Госавтоинспекция" FontSize="18" VerticalAlignment="Center"/>
             </StackPanel>
-            <Button HorizontalAlignment="Right" Content="Выйти" Margin="0, 0, 10, 0" Height="30" Width="65" FontSize="16" Click="Button_Click"/>
+            <Button HorizontalAlignment="Left" Content="Назад" Margin="10, 0, 0, 0" Height="30" Width="65" FontSize="16" Click="Button_Click"/>
         </Grid>
 
         <Grid Grid.Row="1">

@@ -22,16 +22,35 @@ namespace GibddApp.WIndows
     /// </summary>
     public partial class MainMenu : Window
     {
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        TimeSpan dispatcherTimeCounter;
+        TimeSpan timeLimit = new TimeSpan(0, 1, 0);
+
         public MainMenu()
         {
             InitializeComponent();
 
             var drivers = Context._con.Driver.ToList();
             DriverList.ItemsSource = drivers;
+
+            dispatcherTimeCounter = new TimeSpan(0, 0, 0);
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+            dispatcherTimer.Tick += new EventHandler(TimerTick);
+            dispatcherTimer.Start();
         }
 
-       
+        private void TimerTick(object sender, EventArgs e)
+        {
+            dispatcherTimeCounter += new TimeSpan(0, 0, 1);
 
+            if(dispatcherTimeCounter >= new TimeSpan(0, 1, 0))
+            {
+                dispatcherTimer.Stop();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -87,6 +106,11 @@ namespace GibddApp.WIndows
             {
                 MessageBox.Show("Сначала кликните по водителю!)");
             }
+        }
+
+        private void DriverList_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            dispatcherTimeCounter = new TimeSpan(0, 0, 0);
         }
     }
 }

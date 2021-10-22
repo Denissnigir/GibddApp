@@ -28,12 +28,12 @@
     <Property Name="DriverPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DriverEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DriverPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DriverPhotoBin" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="DriverDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Company" Relationship="Self.FK_Driver_Company" FromRole="Driver" ToRole="Company" />
     <NavigationProperty Name="JobList" Relationship="Self.FK_Driver_JobList" FromRole="Driver" ToRole="JobList" />
     <NavigationProperty Name="Town" Relationship="Self.FK_Driver_Town" FromRole="Driver" ToRole="Town" />
     <NavigationProperty Name="Town1" Relationship="Self.FK_Driver_Town1" FromRole="Driver" ToRole="Town" />
-    <NavigationProperty Name="DriverArchive" Relationship="Self.FK_DriverArchive_Driver" FromRole="Driver" ToRole="DriverArchive" />
   </EntityType>
   <EntityType Name="DriverArchive">
     <Key>
@@ -57,7 +57,6 @@
     <Property Name="DriverEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DriverPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DriverDescrition" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Driver" Relationship="Self.FK_DriverArchive_Driver" FromRole="DriverArchive" ToRole="Driver" />
   </EntityType>
   <EntityType Name="JobList">
     <Key>
@@ -143,19 +142,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DriverArchive_Driver">
-    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
-    <End Role="DriverArchive" Type="Self.DriverArchive" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Driver">
-        <PropertyRef Name="DriverId" />
-      </Principal>
-      <Dependent Role="DriverArchive">
-        <PropertyRef Name="DriverId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="GibddDBEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="GibddBDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Company" EntityType="Self.Company" />
     <EntitySet Name="Driver" EntityType="Self.Driver" />
     <EntitySet Name="DriverArchive" EntityType="Self.DriverArchive" />
@@ -178,10 +165,6 @@
     <AssociationSet Name="FK_Driver_Town1" Association="Self.FK_Driver_Town1">
       <End Role="Town" EntitySet="Town" />
       <End Role="Driver" EntitySet="Driver" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DriverArchive_Driver" Association="Self.FK_DriverArchive_Driver">
-      <End Role="Driver" EntitySet="Driver" />
-      <End Role="DriverArchive" EntitySet="DriverArchive" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

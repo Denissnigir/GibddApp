@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using GibddApp.Model;
 using Microsoft.Win32;
 
+
 namespace GibddApp.WIndows
 {
     /// <summary>
@@ -24,6 +25,9 @@ namespace GibddApp.WIndows
     {
         string pathPhoto = null;
         string namePhoto = null;
+        char format1 = 'f';
+        char format2 = 'f';
+        BitmapImage bitmapImage;
 
         public DriverAdd()
         {
@@ -61,11 +65,38 @@ namespace GibddApp.WIndows
             driver.DriverCompanyId = CompanyCB.SelectedIndex + 1;
             driver.DriverJobId = JobCB.SelectedIndex + 1;
             driver.DriverPhone = DriverPhoneTB.Text;
-            driver.DriverEmail = DriverEmailTB.Text;
+            foreach(char c in DriverEmailTB.Text)
+            {
+                if(c == '@')
+                {
+                    format1 = c;
+                } else if(c == '.')
+                {
+                    format2 = c;
+                }
+            }
+            if(format1 != 'f' && format2 != 'f')
+            {
+                driver.DriverEmail = DriverEmailTB.Text;
+            }
+            else
+            {
+                MessageBox.Show("Неверный формат Email!");
+                return;
+            }
+            
             if (pathPhoto != null)
             {
                 string photoPath = $@"\photo\{namePhoto}";
-                File.Copy(pathPhoto, $@"..\..{photoPath}");
+                try
+                {
+                    File.Copy(pathPhoto, $@"..\..{photoPath}");
+                    
+                }
+                catch
+                {
+
+                }
                 driver.DriverPhoto = photoPath;
             }
             driver.DriverDescription = DriverDescriptionTB.Text;
@@ -82,16 +113,7 @@ namespace GibddApp.WIndows
         private void ChoosePhotoBTN_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            if ((bool)openFileDialog.ShowDialog())
-            {
-                pathPhoto = openFileDialog.FileName;
-                if (pathPhoto != null)
-                {
-                    namePhoto = pathPhoto.Split('\\')[pathPhoto.Split('\\').Length - 1];
-
-                    ChoosePhotoBTN.Content = $"{namePhoto}";
-                }
-            }
+            
         }
     }
 }

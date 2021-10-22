@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GibddApp.Model;
+using Microsoft.Win32;
 
 namespace GibddApp.WIndows
 {
@@ -21,6 +23,8 @@ namespace GibddApp.WIndows
     public partial class DriverChange : Window
     {
         Driver driverData;
+        string pathPhoto = null;
+        string namePhoto = null;
 
         public DriverChange(Driver driver)
         {
@@ -78,6 +82,16 @@ namespace GibddApp.WIndows
             }
             DriverPhoneTB.Text = driverData.DriverPhone;
             DriverEmailTB.Text = driverData.DriverEmail;
+            if(driverData.DriverPhoto == null)
+            {
+                ChoosePhotoBTN.Content = "Выберите фото";
+            }
+            else
+            {
+                string prevPhotoPath = driverData.DriverPhoto;
+                string prevPhotoName = prevPhotoPath.Split('\\')[prevPhotoPath.Split('\\').Length - 1];
+                ChoosePhotoBTN.Content = prevPhotoName;
+            }
             DriverDescriptionTB.Text = driverData.DriverDescription;
         }
 
@@ -95,14 +109,56 @@ namespace GibddApp.WIndows
             driverData.DriverSecondName = DriverSNTB.Text;
             driverData.DriverPassportSerial = DriverPassSerialTB.Text;
             driverData.DriverPassportNumber = DriverPassNumberTB.Text;
-            driverData.DriverTownId = TownListCB.SelectedIndex + 1;
+            if(TownListCB.SelectedIndex == -1)
+            {
+                driverData.DriverTownId = null;
+            }
+            else
+            {
+                driverData.DriverTownId = TownListCB.SelectedIndex + 1;
+            }
+            
             driverData.DriverAddress = DriverAddressTB.Text;
-            driverData.DriverTownLifeId = TownLifeListCB.SelectedIndex + 1;
+            if (TownLifeListCB.SelectedIndex == -1)
+            {
+                driverData.DriverTownLifeId = null;
+            }
+            else
+            {
+                driverData.DriverTownLifeId = TownLifeListCB.SelectedIndex + 1;
+            }
             driverData.DriverAddressLife = DriverAddressLifeTB.Text;
-            driverData.DriverCompanyId = CompanyCB.SelectedIndex + 1;
-            driverData.DriverJobId = JobCB.SelectedIndex + 1;
+            if(CompanyCB.SelectedIndex == -1)
+            {
+                driverData.DriverCompanyId = null;
+            }
+            else
+            {
+                driverData.DriverCompanyId = CompanyCB.SelectedIndex + 1;
+            }
+            if(JobCB.SelectedIndex == -1)
+            {
+                driverData.DriverJobId = null;
+            }
+            else
+            {
+                driverData.DriverJobId = JobCB.SelectedIndex + 1;
+            }
             driverData.DriverPhone = DriverPhoneTB.Text;
             driverData.DriverEmail = DriverEmailTB.Text;
+            if (pathPhoto != null)
+            {
+                string photoPath = $@"\photo\{namePhoto}";
+                try
+                {
+                    File.Copy(pathPhoto, $@"..\..{photoPath}");
+                }
+                catch
+                {
+
+                }
+                driverData.DriverPhoto = photoPath;
+            }
             driverData.DriverDescription = DriverDescriptionTB.Text;
 
             Context._con.SaveChanges();
@@ -110,6 +166,22 @@ namespace GibddApp.WIndows
             MainMenu mainMenu = new MainMenu();
             mainMenu.Show();
             this.Close();
+        }
+
+        private void ChoosePhotoBTN_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if ((bool)openFileDialog.ShowDialog())
+            {
+                pathPhoto = openFileDialog.FileName;
+
+                if (pathPhoto != null)
+                {
+                    namePhoto = pathPhoto.Split('\\')[pathPhoto.Split('\\').Length - 1];
+
+                    ChoosePhotoBTN.Content = $"{namePhoto}";
+                }
+            }
         }
     }
 }

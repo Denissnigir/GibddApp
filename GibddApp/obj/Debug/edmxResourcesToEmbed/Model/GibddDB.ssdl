@@ -27,6 +27,7 @@
     <Property Name="DriverPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="DriverEmail" Type="nvarchar" MaxLength="50" />
     <Property Name="DriverPhoto" Type="nvarchar(max)" />
+    <Property Name="DriverPhotoBin" Type="varbinary(max)" />
     <Property Name="DriverDescription" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="DriverArchive">
@@ -133,18 +134,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DriverArchive_Driver">
-    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
-    <End Role="DriverArchive" Type="Self.DriverArchive" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Driver">
-        <PropertyRef Name="DriverId" />
-      </Principal>
-      <Dependent Role="DriverArchive">
-        <PropertyRef Name="DriverId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="Хранилище GibddBDModelContainer">
     <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
@@ -168,10 +157,6 @@
     <AssociationSet Name="FK_Driver_Town1" Association="Self.FK_Driver_Town1">
       <End Role="Town" EntitySet="Town" />
       <End Role="Driver" EntitySet="Driver" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DriverArchive_Driver" Association="Self.FK_DriverArchive_Driver">
-      <End Role="Driver" EntitySet="Driver" />
-      <End Role="DriverArchive" EntitySet="DriverArchive" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

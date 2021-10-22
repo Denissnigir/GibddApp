@@ -59,7 +59,7 @@
                 <ComboBox Name="JobCB" DisplayMemberPath="JobName" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20" IsEditable="True" SelectedIndex="1"/>
                 <TextBox Name="DriverPhoneTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
                 <TextBox Name="DriverEmailTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
-                <TextBox HorizontalAlignment="Left" Width="250" Height="20"/>
+                <Button HorizontalAlignment="Left" Click="ChoosePhotoBTN_Click" Name="ChoosePhotoBTN" Width="250" Height="20"/>
                 <TextBox Name="DriverDescriptionTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
             </StackPanel>
         </Grid>

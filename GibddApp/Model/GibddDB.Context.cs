@@ -13,10 +13,10 @@ namespace GibddApp.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GibddDBEntities : DbContext
+    public partial class GibddBDEntities : DbContext
     {
-        public GibddDBEntities()
-            : base("name=GibddDBEntities")
+        public GibddBDEntities()
+            : base("name=GibddBDEntities")
         {
         }
     
