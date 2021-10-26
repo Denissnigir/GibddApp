@@ -81,6 +81,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Category.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CategoryStatus.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Company.cs">
       <DependentUpon>GibddDB.tt</DependentUpon>
     </Compile>
@@ -89,6 +95,12 @@
       <DependentUpon>GibddDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DriverArchive.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DriverVehicle.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DriveType.cs">
       <DependentUpon>GibddDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\GibddDB.Context.cs">
@@ -109,6 +121,26 @@
     <Compile Include="Model\JobList.cs">
       <DependentUpon>GibddDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Licence.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LicenceArchive.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LicenceCategory.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Manufacter.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartClass.cs" />
+    <Compile Include="Model\PartClass2.cs" />
+    <Compile Include="Model\Serial.cs">
+      <DependentUpon>GibddDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>GibddDB.tt</DependentUpon>
     </Compile>
@@ -124,8 +156,14 @@
     <Compile Include="WIndows\DriverChange.xaml.cs">
       <DependentUpon>DriverChange.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WIndows\LicencePrint.xaml.cs">
+      <DependentUpon>LicencePrint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WIndows\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WIndows\MainMenuLicence.xaml.cs">
+      <DependentUpon>MainMenuLicence.xaml</DependentUpon>
     </Compile>
     <Compile Include="WIndows\PinWindow.xaml.cs">
       <DependentUpon>PinWindow.xaml</DependentUpon>
@@ -150,7 +188,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WIndows\LicencePrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WIndows\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WIndows\MainMenuLicence.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -423,6 +469,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{25770e30-f51c-43d8-be7a-1d823295375d}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\GibddDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>GibddDB.edmx</DependentUpon>
@@ -433,12 +485,7 @@
       <DependentUpon>GibddDB.edmx</DependentUpon>
       <LastGenOutput>GibddDB.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
-      <Project>{25770e30-f51c-43d8-be7a-1d823295375d}</Project>
-      <Name>ClassLibrary1</Name>
-    </ProjectReference>
+    <Resource Include="photo\driver_license_template.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

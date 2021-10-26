@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="GibddBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="LicenceCategory" Relationship="Self.FK_LicenceCategory_Category" FromRole="Category" ToRole="LicenceCategory" />
+  </EntityType>
+  <EntityType Name="CategoryStatus">
+    <Key>
+      <PropertyRef Name="CategoryStatusId" />
+    </Key>
+    <Property Name="CategoryStatusId" Type="Int32" Nullable="false" />
+    <Property Name="CategoryStatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Licence" Relationship="Self.FK_Licence_CategoryStatus" FromRole="CategoryStatus" ToRole="Licence" />
+  </EntityType>
   <EntityType Name="Company">
     <Key>
       <PropertyRef Name="CompanyId" />
@@ -34,6 +50,8 @@
     <NavigationProperty Name="JobList" Relationship="Self.FK_Driver_JobList" FromRole="Driver" ToRole="JobList" />
     <NavigationProperty Name="Town" Relationship="Self.FK_Driver_Town" FromRole="Driver" ToRole="Town" />
     <NavigationProperty Name="Town1" Relationship="Self.FK_Driver_Town1" FromRole="Driver" ToRole="Town" />
+    <NavigationProperty Name="DriverVehicle" Relationship="Self.FK_DriverVehicle_Driver" FromRole="Driver" ToRole="DriverVehicle" />
+    <NavigationProperty Name="Licence" Relationship="Self.FK_Licence_Driver" FromRole="Driver" ToRole="Licence" />
   </EntityType>
   <EntityType Name="DriverArchive">
     <Key>
@@ -58,6 +76,35 @@
     <Property Name="DriverPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="DriverDescrition" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="DriverVehicle">
+    <Key>
+      <PropertyRef Name="DriverVehicleId" />
+    </Key>
+    <Property Name="DriverVehicleId" Type="Int32" Nullable="false" />
+    <Property Name="DriverId" Type="Int32" />
+    <Property Name="VehicleVin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleManufacter" Type="Int32" />
+    <Property Name="VehicleSerial" Type="Int32" />
+    <Property Name="VehicleModel" Type="Int32" />
+    <Property Name="VehicleYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleWeight" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VehicleColor" Type="Int32" />
+    <Property Name="EngineType" Type="Int32" />
+    <Property Name="DriveType" Type="Int32" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_DriverVehicle_Driver" FromRole="DriverVehicle" ToRole="Driver" />
+    <NavigationProperty Name="DriveType1" Relationship="Self.FK_DriverVehicle_DriveType" FromRole="DriverVehicle" ToRole="DriveType" />
+    <NavigationProperty Name="Manufacter" Relationship="Self.FK_DriverVehicle_Manufacter" FromRole="DriverVehicle" ToRole="Manufacter" />
+    <NavigationProperty Name="Model" Relationship="Self.FK_DriverVehicle_Model" FromRole="DriverVehicle" ToRole="Model" />
+    <NavigationProperty Name="Serial" Relationship="Self.FK_DriverVehicle_Serial" FromRole="DriverVehicle" ToRole="Serial" />
+  </EntityType>
+  <EntityType Name="DriveType">
+    <Key>
+      <PropertyRef Name="DriveTypeId" />
+    </Key>
+    <Property Name="DriveTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DriveTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DriverVehicle" Relationship="Self.FK_DriverVehicle_DriveType" FromRole="DriveType" ToRole="DriverVehicle" />
+  </EntityType>
   <EntityType Name="JobList">
     <Key>
       <PropertyRef Name="JobId" />
@@ -65,6 +112,79 @@
     <Property Name="JobId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="JobName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Driver" Relationship="Self.FK_Driver_JobList" FromRole="JobList" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="Licence">
+    <Key>
+      <PropertyRef Name="LicenceId" />
+    </Key>
+    <Property Name="LicenceId" Type="Int32" Nullable="false" />
+    <Property Name="DriverId" Type="Int32" />
+    <Property Name="LicenceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LicenceExpireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LicenceSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LicenceNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LicenceStatus" Type="Int32" />
+    <Property Name="LicenceStampPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LicenceDriverSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LicenceInfoForChangingCountry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LicenceAdditionalInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CategoryStatus" Relationship="Self.FK_Licence_CategoryStatus" FromRole="Licence" ToRole="CategoryStatus" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_Licence_Driver" FromRole="Licence" ToRole="Driver" />
+    <NavigationProperty Name="LicenceCategory" Relationship="Self.FK_LicenceCategory_Licence" FromRole="Licence" ToRole="LicenceCategory" />
+  </EntityType>
+  <EntityType Name="LicenceArchive">
+    <Key>
+      <PropertyRef Name="LicenceArchiveId" />
+    </Key>
+    <Property Name="LicenceArchiveId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicenceId" Type="Int32" Nullable="false" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <Property Name="LicenceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LicenceExpireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LicenceSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LicenceNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LicenceStatus" Type="Int32" Nullable="false" />
+    <Property Name="LicenceStampPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LicenceDriverSignature" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LicenceInfoForChangingCountry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LicenceAdditionalInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LicenceCategory">
+    <Key>
+      <PropertyRef Name="LicenceCategoryId" />
+    </Key>
+    <Property Name="LicenceCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="LicenceId" Type="Int32" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="ExpireDate" Type="DateTime" Precision="0" />
+    <Property Name="Constraints" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_LicenceCategory_Category" FromRole="LicenceCategory" ToRole="Category" />
+    <NavigationProperty Name="Licence" Relationship="Self.FK_LicenceCategory_Licence" FromRole="LicenceCategory" ToRole="Licence" />
+  </EntityType>
+  <EntityType Name="Manufacter">
+    <Key>
+      <PropertyRef Name="ManufacterId" />
+    </Key>
+    <Property Name="ManufacterId" Type="Int32" Nullable="false" />
+    <Property Name="ManufacterName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DriverVehicle" Relationship="Self.FK_DriverVehicle_Manufacter" FromRole="Manufacter" ToRole="DriverVehicle" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="ModelId" />
+    </Key>
+    <Property Name="ModelId" Type="Int32" Nullable="false" />
+    <Property Name="ModelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DriverVehicle" Relationship="Self.FK_DriverVehicle_Model" FromRole="Model" ToRole="DriverVehicle" />
+  </EntityType>
+  <EntityType Name="Serial">
+    <Key>
+      <PropertyRef Name="SerialId" />
+    </Key>
+    <Property Name="SerialId" Type="Int32" Nullable="false" />
+    <Property Name="SerialName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DriverVehicle" Relationship="Self.FK_DriverVehicle_Serial" FromRole="Serial" ToRole="DriverVehicle" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -94,6 +214,30 @@
     <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UserPin" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
   </EntityType>
+  <Association Name="FK_LicenceCategory_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="LicenceCategory" Type="Self.LicenceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="LicenceCategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licence_CategoryStatus">
+    <End Role="CategoryStatus" Type="Self.CategoryStatus" Multiplicity="0..1" />
+    <End Role="Licence" Type="Self.Licence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryStatus">
+        <PropertyRef Name="CategoryStatusId" />
+      </Principal>
+      <Dependent Role="Licence">
+        <PropertyRef Name="LicenceStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Driver_Company">
     <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
     <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
@@ -142,14 +286,120 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DriverVehicle_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1" />
+    <End Role="DriverVehicle" Type="Self.DriverVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverId" />
+      </Principal>
+      <Dependent Role="DriverVehicle">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licence_Driver">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Licence" Type="Self.Licence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverId" />
+      </Principal>
+      <Dependent Role="Licence">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverVehicle_DriveType">
+    <End Role="DriveType" Type="Self.DriveType" Multiplicity="0..1" />
+    <End Role="DriverVehicle" Type="Self.DriverVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DriveType">
+        <PropertyRef Name="DriveTypeId" />
+      </Principal>
+      <Dependent Role="DriverVehicle">
+        <PropertyRef Name="DriveType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverVehicle_Manufacter">
+    <End Role="Manufacter" Type="Self.Manufacter" Multiplicity="0..1" />
+    <End Role="DriverVehicle" Type="Self.DriverVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacter">
+        <PropertyRef Name="ManufacterId" />
+      </Principal>
+      <Dependent Role="DriverVehicle">
+        <PropertyRef Name="VehicleManufacter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverVehicle_Model">
+    <End Role="Model" Type="Self.Model" Multiplicity="0..1" />
+    <End Role="DriverVehicle" Type="Self.DriverVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Model">
+        <PropertyRef Name="ModelId" />
+      </Principal>
+      <Dependent Role="DriverVehicle">
+        <PropertyRef Name="VehicleModel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DriverVehicle_Serial">
+    <End Role="Serial" Type="Self.Serial" Multiplicity="0..1" />
+    <End Role="DriverVehicle" Type="Self.DriverVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Serial">
+        <PropertyRef Name="SerialId" />
+      </Principal>
+      <Dependent Role="DriverVehicle">
+        <PropertyRef Name="VehicleSerial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LicenceCategory_Licence">
+    <End Role="Licence" Type="Self.Licence" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LicenceCategory" Type="Self.LicenceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Licence">
+        <PropertyRef Name="LicenceId" />
+      </Principal>
+      <Dependent Role="LicenceCategory">
+        <PropertyRef Name="LicenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="GibddBDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="CategoryStatus" EntityType="Self.CategoryStatus" />
     <EntitySet Name="Company" EntityType="Self.Company" />
     <EntitySet Name="Driver" EntityType="Self.Driver" />
     <EntitySet Name="DriverArchive" EntityType="Self.DriverArchive" />
+    <EntitySet Name="DriverVehicle" EntityType="Self.DriverVehicle" />
+    <EntitySet Name="DriveType" EntityType="Self.DriveType" />
     <EntitySet Name="JobList" EntityType="Self.JobList" />
+    <EntitySet Name="Licence" EntityType="Self.Licence" />
+    <EntitySet Name="LicenceArchive" EntityType="Self.LicenceArchive" />
+    <EntitySet Name="LicenceCategory" EntityType="Self.LicenceCategory" />
+    <EntitySet Name="Manufacter" EntityType="Self.Manufacter" />
+    <EntitySet Name="Model" EntityType="Self.Model" />
+    <EntitySet Name="Serial" EntityType="Self.Serial" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Town" EntityType="Self.Town" />
     <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_LicenceCategory_Category" Association="Self.FK_LicenceCategory_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="LicenceCategory" EntitySet="LicenceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licence_CategoryStatus" Association="Self.FK_Licence_CategoryStatus">
+      <End Role="CategoryStatus" EntitySet="CategoryStatus" />
+      <End Role="Licence" EntitySet="Licence" />
+    </AssociationSet>
     <AssociationSet Name="FK_Driver_Company" Association="Self.FK_Driver_Company">
       <End Role="Company" EntitySet="Company" />
       <End Role="Driver" EntitySet="Driver" />
@@ -165,6 +415,34 @@
     <AssociationSet Name="FK_Driver_Town1" Association="Self.FK_Driver_Town1">
       <End Role="Town" EntitySet="Town" />
       <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverVehicle_Driver" Association="Self.FK_DriverVehicle_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="DriverVehicle" EntitySet="DriverVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licence_Driver" Association="Self.FK_Licence_Driver">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="Licence" EntitySet="Licence" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverVehicle_DriveType" Association="Self.FK_DriverVehicle_DriveType">
+      <End Role="DriveType" EntitySet="DriveType" />
+      <End Role="DriverVehicle" EntitySet="DriverVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverVehicle_Manufacter" Association="Self.FK_DriverVehicle_Manufacter">
+      <End Role="Manufacter" EntitySet="Manufacter" />
+      <End Role="DriverVehicle" EntitySet="DriverVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverVehicle_Model" Association="Self.FK_DriverVehicle_Model">
+      <End Role="Model" EntitySet="Model" />
+      <End Role="DriverVehicle" EntitySet="DriverVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DriverVehicle_Serial" Association="Self.FK_DriverVehicle_Serial">
+      <End Role="Serial" EntitySet="Serial" />
+      <End Role="DriverVehicle" EntitySet="DriverVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LicenceCategory_Licence" Association="Self.FK_LicenceCategory_Licence">
+      <End Role="Licence" EntitySet="Licence" />
+      <End Role="LicenceCategory" EntitySet="LicenceCategory" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -183,5 +183,15 @@ namespace GibddApp.WIndows
                 }
             }
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Button_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+
+        }
     }
 }

@@ -104,6 +104,7 @@ namespace GibddApp.WIndows
                 Context._con.Driver.RemoveRange(driverForDelete);
                 Context._con.SaveChanges();
                 DriverList.ItemsSource = Context._con.Driver.ToList();
+                MessageBox.Show("Данные о водителе удалены и занесены в архив.");
             }
             else
             {
@@ -116,6 +117,11 @@ namespace GibddApp.WIndows
             dispatcherTimeCounter = new TimeSpan(0, 0, 0);
         }
 
-        
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            MainMenuLicence mainMenuLicence = new MainMenuLicence();
+            mainMenuLicence.Show();
+            this.Close();
+        }
     }
 }

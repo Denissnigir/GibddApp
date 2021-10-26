@@ -25,10 +25,20 @@ namespace GibddApp.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<CategoryStatus> CategoryStatus { get; set; }
         public virtual DbSet<Company> Company { get; set; }
         public virtual DbSet<Driver> Driver { get; set; }
         public virtual DbSet<DriverArchive> DriverArchive { get; set; }
+        public virtual DbSet<DriverVehicle> DriverVehicle { get; set; }
+        public virtual DbSet<DriveType> DriveType { get; set; }
         public virtual DbSet<JobList> JobList { get; set; }
+        public virtual DbSet<Licence> Licence { get; set; }
+        public virtual DbSet<LicenceArchive> LicenceArchive { get; set; }
+        public virtual DbSet<LicenceCategory> LicenceCategory { get; set; }
+        public virtual DbSet<Manufacter> Manufacter { get; set; }
+        public virtual DbSet<Model> Model { get; set; }
+        public virtual DbSet<Serial> Serial { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Town> Town { get; set; }
         public virtual DbSet<User> User { get; set; }

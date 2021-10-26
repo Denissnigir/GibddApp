@@ -58,3 +58,7 @@ C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\DriverCha
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\GibddApp.csprojAssemblyReference.cache
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\bin\Debug\ClassLibrary1.dll
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\bin\Debug\ClassLibrary1.pdb
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\MainMenuLicence.g.cs
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\MainMenuLicence.baml
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\LicencePrint.g.cs
+C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\obj\Debug\WIndows\LicencePrint.baml

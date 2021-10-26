@@ -1,6 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Хранилище GibddBDModelContainer" CdmEntityContainer="GibddBDEntities">
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="GibddBDModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryStatus">
+      <EntityTypeMapping TypeName="GibddBDModel.CategoryStatus">
+        <MappingFragment StoreEntitySet="CategoryStatus">
+          <ScalarProperty Name="CategoryStatusId" ColumnName="CategoryStatusId" />
+          <ScalarProperty Name="CategoryStatusName" ColumnName="CategoryStatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Company">
       <EntityTypeMapping TypeName="GibddBDModel.Company">
         <MappingFragment StoreEntitySet="Company">
@@ -57,11 +73,107 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DriverVehicle">
+      <EntityTypeMapping TypeName="GibddBDModel.DriverVehicle">
+        <MappingFragment StoreEntitySet="DriverVehicle">
+          <ScalarProperty Name="DriverVehicleId" ColumnName="DriverVehicleId" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="VehicleVin" ColumnName="VehicleVin" />
+          <ScalarProperty Name="VehicleManufacter" ColumnName="VehicleManufacter" />
+          <ScalarProperty Name="VehicleSerial" ColumnName="VehicleSerial" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleYear" ColumnName="VehicleYear" />
+          <ScalarProperty Name="VehicleWeight" ColumnName="VehicleWeight" />
+          <ScalarProperty Name="VehicleColor" ColumnName="VehicleColor" />
+          <ScalarProperty Name="EngineType" ColumnName="EngineType" />
+          <ScalarProperty Name="DriveType" ColumnName="DriveType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriveType">
+      <EntityTypeMapping TypeName="GibddBDModel.DriveType">
+        <MappingFragment StoreEntitySet="DriveType">
+          <ScalarProperty Name="DriveTypeId" ColumnName="DriveTypeId" />
+          <ScalarProperty Name="DriveTypeName" ColumnName="DriveTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="JobList">
       <EntityTypeMapping TypeName="GibddBDModel.JobList">
         <MappingFragment StoreEntitySet="JobList">
           <ScalarProperty Name="JobId" ColumnName="JobId" />
           <ScalarProperty Name="JobName" ColumnName="JobName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licence">
+      <EntityTypeMapping TypeName="GibddBDModel.Licence">
+        <MappingFragment StoreEntitySet="Licence">
+          <ScalarProperty Name="LicenceId" ColumnName="LicenceId" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="LicenceDate" ColumnName="LicenceDate" />
+          <ScalarProperty Name="LicenceExpireDate" ColumnName="LicenceExpireDate" />
+          <ScalarProperty Name="LicenceSeries" ColumnName="LicenceSeries" />
+          <ScalarProperty Name="LicenceNumber" ColumnName="LicenceNumber" />
+          <ScalarProperty Name="LicenceStatus" ColumnName="LicenceStatus" />
+          <ScalarProperty Name="LicenceStampPath" ColumnName="LicenceStampPath" />
+          <ScalarProperty Name="LicenceDriverSignature" ColumnName="LicenceDriverSignature" />
+          <ScalarProperty Name="LicenceInfoForChangingCountry" ColumnName="LicenceInfoForChangingCountry" />
+          <ScalarProperty Name="LicenceAdditionalInfo" ColumnName="LicenceAdditionalInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenceArchive">
+      <EntityTypeMapping TypeName="GibddBDModel.LicenceArchive">
+        <MappingFragment StoreEntitySet="LicenceArchive">
+          <ScalarProperty Name="LicenceArchiveId" ColumnName="LicenceArchiveId" />
+          <ScalarProperty Name="LicenceId" ColumnName="LicenceId" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="LicenceDate" ColumnName="LicenceDate" />
+          <ScalarProperty Name="LicenceExpireDate" ColumnName="LicenceExpireDate" />
+          <ScalarProperty Name="LicenceSeries" ColumnName="LicenceSeries" />
+          <ScalarProperty Name="LicenceNumber" ColumnName="LicenceNumber" />
+          <ScalarProperty Name="LicenceStatus" ColumnName="LicenceStatus" />
+          <ScalarProperty Name="LicenceStampPath" ColumnName="LicenceStampPath" />
+          <ScalarProperty Name="LicenceDriverSignature" ColumnName="LicenceDriverSignature" />
+          <ScalarProperty Name="LicenceInfoForChangingCountry" ColumnName="LicenceInfoForChangingCountry" />
+          <ScalarProperty Name="LicenceAdditionalInfo" ColumnName="LicenceAdditionalInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenceCategory">
+      <EntityTypeMapping TypeName="GibddBDModel.LicenceCategory">
+        <MappingFragment StoreEntitySet="LicenceCategory">
+          <ScalarProperty Name="LicenceCategoryId" ColumnName="LicenceCategoryId" />
+          <ScalarProperty Name="LicenceId" ColumnName="LicenceId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="Constraints" ColumnName="Constraints" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manufacter">
+      <EntityTypeMapping TypeName="GibddBDModel.Manufacter">
+        <MappingFragment StoreEntitySet="Manufacter">
+          <ScalarProperty Name="ManufacterId" ColumnName="ManufacterId" />
+          <ScalarProperty Name="ManufacterName" ColumnName="ManufacterName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Model">
+      <EntityTypeMapping TypeName="GibddBDModel.Model">
+        <MappingFragment StoreEntitySet="Model">
+          <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Serial">
+      <EntityTypeMapping TypeName="GibddBDModel.Serial">
+        <MappingFragment StoreEntitySet="Serial">
+          <ScalarProperty Name="SerialId" ColumnName="SerialId" />
+          <ScalarProperty Name="SerialName" ColumnName="SerialName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

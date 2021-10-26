@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GibddApp"
         mc:Ignorable="d"
-        Title="ГИБДД | Авторизация" MinHeight="350" MinWidth="450" WindowStartupLocation="CenterScreen" Height="350" Width="450" Icon="\Logo\gibdd_logo.png">
+        Title="ГИБДД | Авторизация" MinHeight="350" MinWidth="450" WindowStartupLocation="CenterScreen" Height="350" Width="450" ResizeMode="NoResize" Icon="\Logo\gibdd_logo.png">
     <Grid Background="#FFB5D5CA">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*"/>

@@ -13,7 +13,7 @@
             <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
 
-        <Grid Background="#FFD1EEFC">
+        <Grid Background="#FFD1EEFC" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Image Source="\Logo\gibdd_logo.png" Margin="0, 5, 10, 5"/>
                 <TextBlock Text="Госавтоинспекция" FontSize="18" VerticalAlignment="Center"/>
@@ -21,7 +21,7 @@
             <Button HorizontalAlignment="Right" Click="Button_Click" Content="Выйти" Margin="0, 0, 10, 0" Height="30" Width="65" FontSize="16"/>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -63,6 +63,6 @@
                 <TextBox Name="DriverDescriptionTB" FontSize="16" HorizontalAlignment="Left" Width="250" Height="20"/>
             </StackPanel>
         </Grid>
-        <Button Grid.Row="2" Height="35" Width="250" Content="Редактировать водителя" FontSize="18" Click="Button_Click_1"/>
+        <Button Grid.Row="2" Height="35" Width="200" Content="Редактировать водителя" FontSize="14" Click="Button_Click_1"/>
     </Grid>
 </Window>

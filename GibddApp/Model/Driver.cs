@@ -11,11 +11,16 @@ namespace GibddApp.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Windows.Media.Imaging;
-
+    
     public partial class Driver
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Driver()
+        {
+            this.DriverVehicle = new HashSet<DriverVehicle>();
+            this.Licence = new HashSet<Licence>();
+        }
+    
         public int DriverId { get; set; }
         public string DriverFirstName { get; set; }
         public string DriverSecondName { get; set; }
@@ -39,17 +44,9 @@ namespace GibddApp.Model
         public virtual JobList JobList { get; set; }
         public virtual Town Town { get; set; }
         public virtual Town Town1 { get; set; }
-        
-        public byte[] image
-        {
-            get
-            {
-                byte[] filename = File.ReadAllBytes($@"..\..{DriverPhoto}");
-                return filename;
-             }
-            
-        }
-       
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DriverVehicle> DriverVehicle { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Licence> Licence { get; set; }
     }
-    
 }

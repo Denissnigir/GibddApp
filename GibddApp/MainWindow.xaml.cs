@@ -74,6 +74,9 @@ namespace GibddApp
             {
                 PinWindow pinWindow = new PinWindow(user);
                 pinWindow.Show();
+            } else if(user == null)
+            {
+                MessageBox.Show("Неверный логин или пароль!");
             }
         }
 

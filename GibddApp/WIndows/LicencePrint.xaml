@@ -1,0 +1,41 @@
+﻿<Window x:Class="GibddApp.WIndows.LicencePrint"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GibddApp.WIndows"
+        mc:Ignorable="d"
+        Title="LicencePrint" Height="667" Width="1000">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/GibddApp;component/photo/driver_license_template.jpg"/>
+        </Grid.Background>
+        <Image x:Name="Photo" Width="200" Height="300" Margin="63,210,729,126"/>
+        <TextBox Name="secondName" Height="20" Margin="311,210,517,406"/>
+        <TextBox Name="firstName" Height="20" Margin="311,255,517,361"/>
+        <!--<ListBox Grid.ColumnSpan="3" Name="LicenceList">
+            
+            <ListBox.Background>
+                <ImageBrush ImageSource="/GibddApp;component/photo/driver_license_template.jpg"/>
+            </ListBox.Background>
+
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.07*"/>
+                            <ColumnDefinition Width="0.32*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock  Text="{Binding LicenceSeries}"/>
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
+    </Grid>
+</Window>

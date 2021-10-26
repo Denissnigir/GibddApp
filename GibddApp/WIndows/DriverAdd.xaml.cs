@@ -117,6 +117,8 @@ namespace GibddApp.WIndows
                 namePhoto = pathPhoto.Split('\\').Last();
                 ChoosePhotoBTN.Content = namePhoto;
             }
+
+            
         }
     }
 }
