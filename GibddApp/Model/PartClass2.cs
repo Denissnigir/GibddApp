@@ -38,5 +38,22 @@ namespace GibddApp.Model
                 }
             }
         }
+
+        public string Category
+        {
+            get
+            {
+                string result = String.Empty;
+                foreach(var x in LicenceCategory)
+                {
+                    if(result != String.Empty)
+                    {
+                        result += ", ";
+                    }
+                    result += x.Category.CategoryName;
+                }
+                return result;
+            }
+        }
     }
 }

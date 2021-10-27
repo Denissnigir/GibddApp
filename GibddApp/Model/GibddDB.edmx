@@ -48,6 +48,8 @@
           <Property Name="DriverPhoto" Type="nvarchar(max)" />
           <Property Name="DriverPhotoBin" Type="varbinary(max)" />
           <Property Name="DriverDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="DriverBirthDate" Type="date" />
+          <Property Name="DriverOrgan" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="DriverArchive">
           <Key>
@@ -475,6 +477,8 @@
           <Property Name="DriverPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DriverPhotoBin" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DriverDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DriverBirthDate" Type="DateTime" Precision="0" />
+          <Property Name="DriverOrgan" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Company" Relationship="Self.FK_Driver_Company" FromRole="Driver" ToRole="Company" />
           <NavigationProperty Name="JobList" Relationship="Self.FK_Driver_JobList" FromRole="Driver" ToRole="JobList" />
           <NavigationProperty Name="Town" Relationship="Self.FK_Driver_Town" FromRole="Driver" ToRole="Town" />
@@ -925,6 +929,8 @@
                 <ScalarProperty Name="DriverPhoto" ColumnName="DriverPhoto" />
                 <ScalarProperty Name="DriverPhotoBin" ColumnName="DriverPhotoBin" />
                 <ScalarProperty Name="DriverDescription" ColumnName="DriverDescription" />
+                <ScalarProperty Name="DriverBirthDate" ColumnName="DriverBirthDate" />
+                <ScalarProperty Name="DriverOrgan" ColumnName="DriverOrgan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

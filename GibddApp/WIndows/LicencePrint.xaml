@@ -9,33 +9,59 @@
     <Window.Background>
         <ImageBrush/>
     </Window.Background>
-    <Grid>
+    <Grid x:Name="printPage">
         <Grid.Background>
             <ImageBrush ImageSource="/GibddApp;component/photo/driver_license_template.jpg"/>
         </Grid.Background>
-        <Image x:Name="Photo" Width="200" Height="300" Margin="63,210,729,126"/>
-        <TextBox Name="secondName" Height="20" Margin="311,210,517,406"/>
-        <TextBox Name="firstName" Height="20" Margin="311,255,517,361"/>
-        <!--<ListBox Grid.ColumnSpan="3" Name="LicenceList">
-            
-            <ListBox.Background>
-                <ImageBrush ImageSource="/GibddApp;component/photo/driver_license_template.jpg"/>
-            </ListBox.Background>
-
-
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.07*"/>
-                            <ColumnDefinition Width="0.32*"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock  Text="{Binding LicenceSeries}"/>
-                    </Grid>
-
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.07*"/>
+            <ColumnDefinition Width="0.31*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.6*"/>
+            <RowDefinition Height="2.7*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Grid.Column="1" Grid.Row="1" x:Name="Photo" Width="200" Height="300" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" Stretch="Fill"/>
+        <StackPanel Grid.Row="1" Grid.Column="2"  Orientation="Vertical">
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock Text="1." FontSize="24" Margin="20, 5, 0, 0"/>
+                <TextBlock Name="secondName" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 5, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="2." FontSize="24" Margin="20, 10, 0, 0"/>
+                <TextBlock Name="firstName" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 10, 0 ,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="3." FontSize="24" Margin="20, 10, 0, 0"/>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Name="birthdate" Text="{Binding DriverBirthDate, StringFormat=d}" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 10, 0, 0"/>
+                    <TextBlock Name="town" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 0, 0, 0"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="4a)" FontSize="24" Margin="20, 10, 0, 0"/>
+                <TextBlock Name="licenceDate" Text="{Binding LicenceDate, StringFormat=d}" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5, 10, 0, 0"/>
+                <TextBlock Name="licenceExpireDate" Text="{Binding LicenceExpireDate, StringFormat=d}" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0, 10, 0, 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="4c)" FontSize="24" Margin="20, 10, 0, 0"/>
+                <TextBlock Name="organ" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5, 10, 0, 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="5." FontSize="24" Margin="20, 10, 0, 0"/>
+                <TextBlock Name="number" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 10, 0, 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="8." FontSize="24" Margin="20, 10, 0, 0"/>
+                <TextBlock Name="townLife" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 10, 0, 0"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+            <TextBlock Text="9." FontSize="24" Margin="20, 10, 0, 0"/>
+            <TextBlock Name="categories" TextWrapping="Wrap" Width="300" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 10, 0, 0"/>
+        </StackPanel>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="6." FontSize="24" Margin="20, 10, 0, 0"/>
     </Grid>
 </Window>

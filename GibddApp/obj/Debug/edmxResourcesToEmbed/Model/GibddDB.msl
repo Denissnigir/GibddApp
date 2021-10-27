@@ -46,6 +46,8 @@
           <ScalarProperty Name="DriverPhoto" ColumnName="DriverPhoto" />
           <ScalarProperty Name="DriverPhotoBin" ColumnName="DriverPhotoBin" />
           <ScalarProperty Name="DriverDescription" ColumnName="DriverDescription" />
+          <ScalarProperty Name="DriverBirthDate" ColumnName="DriverBirthDate" />
+          <ScalarProperty Name="DriverOrgan" ColumnName="DriverOrgan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

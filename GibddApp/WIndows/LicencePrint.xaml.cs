@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Drawing.Imaging;
 using GibddApp.Model;
+using System.Printing;
 
 namespace GibddApp.WIndows
 {
@@ -22,11 +23,42 @@ namespace GibddApp.WIndows
     /// </summary>
     public partial class LicencePrint : Window
     {
-        ImageSourceConverter ImageSourceConverter = new ImageSourceConverter();
         public LicencePrint(Licence licence)
         {
             InitializeComponent();
-            serial.Text = licence.LicenceSeries.ToString();
+
+            secondName.Text = licence.Driver.DriverSecondName.ToString();
+            firstName.Text = licence.Driver.DriverFirstName.ToString();
+            birthdate.DataContext = licence.Driver;
+            if (licence.Driver.DriverTownId != null)
+            {
+                town.Text = licence.Driver.Town.TownName.ToString();
+            }
+            else
+            {
+                town.Text = "Нет города";
+            }
+
+            licenceDate.DataContext = licence;
+            licenceExpireDate.DataContext = licence;
+            if (licence.Driver.DriverOrgan != null)
+            {
+                organ.Text = licence.Driver.DriverOrgan.ToString();
+            }
+            else
+            {
+                organ.Text = "Никакой!";
+            }
+            number.Text = licence.LicenceNumber.ToString();
+            if (licence.Driver.DriverTownLifeId != null)
+            {
+                townLife.Text = licence.Driver.Town1.TownName.ToString();
+            }
+            else
+            {
+                town.Text = "Нет города";
+            }
+            categories.Text = licence.Category.ToString();
 
             MemoryStream ms = new MemoryStream(licence.image);
             BitmapImage bitmapImage = new BitmapImage();
@@ -37,6 +69,15 @@ namespace GibddApp.WIndows
 
             Photo.Source = bitmapImage;
 
+            PrintDialog printDialog = new PrintDialog();
+            if((bool)printDialog.ShowDialog())
+            {
+                PrintTicket print = printDialog.PrintTicket;
+                print.PageOrientation = PageOrientation.Landscape;
+                printDialog.PrintTicket = print;
+                printDialog.PrintVisual((Visual)printPage, "Desc");
+            }
         }
+
     }
 }

@@ -9,6 +9,7 @@ namespace GibddApp.Model
 {
     public partial class Driver
     {
+
         public byte[] image
         {
             get

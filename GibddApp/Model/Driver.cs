@@ -39,6 +39,8 @@ namespace GibddApp.Model
         public string DriverPhoto { get; set; }
         public byte[] DriverPhotoBin { get; set; }
         public string DriverDescription { get; set; }
+        public Nullable<System.DateTime> DriverBirthDate { get; set; }
+        public string DriverOrgan { get; set; }
     
         public virtual Company Company { get; set; }
         public virtual JobList JobList { get; set; }

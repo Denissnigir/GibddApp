@@ -36,7 +36,6 @@ namespace GibddApp.WIndows
         {
             var licenceData = (Licence)LicenceList.SelectedItem;
             LicencePrint licence = new LicencePrint(licenceData);
-            licence.Show();
         }
     }
 }

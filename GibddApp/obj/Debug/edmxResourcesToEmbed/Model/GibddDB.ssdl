@@ -43,6 +43,8 @@
     <Property Name="DriverPhoto" Type="nvarchar(max)" />
     <Property Name="DriverPhotoBin" Type="varbinary(max)" />
     <Property Name="DriverDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="DriverBirthDate" Type="date" />
+    <Property Name="DriverOrgan" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="DriverArchive">
     <Key>
