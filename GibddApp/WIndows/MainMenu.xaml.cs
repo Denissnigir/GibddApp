@@ -46,20 +46,19 @@ namespace GibddApp.WIndows
             if (dispatcherTimeCounter >= new TimeSpan(0, 1, 0))
             {
                 dispatcherTimer.Stop();
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                Auth au  = new Auth();
+                au.Show();
                 this.Close();
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var idCount = Context._con.User.Count();
-            for (int i = 1; i <= idCount; i++)
+            foreach(var user in Context._con.User)
             {
-                var user = Context._con.User.Where(p => p.UserId == i).FirstOrDefault();
                 user.UserPin = null;
             }
+
             Context._con.SaveChanges();
             Application.Current.Shutdown();
         }
@@ -75,8 +74,8 @@ namespace GibddApp.WIndows
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             dispatcherTimer.Stop();
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            Auth au = new Auth();
+            au.Show();
             this.Close();
         }
 

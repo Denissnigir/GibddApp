@@ -29,6 +29,7 @@ namespace GibddApp.WIndows
 
             secondName.Text = licence.Driver.DriverSecondName.ToString();
             firstName.Text = licence.Driver.DriverFirstName.ToString();
+            //birthdate.Text = String.Format("{0:d}", licence.Driver.DriverBirthDate);
             birthdate.DataContext = licence.Driver;
             if (licence.Driver.DriverTownId != null)
             {

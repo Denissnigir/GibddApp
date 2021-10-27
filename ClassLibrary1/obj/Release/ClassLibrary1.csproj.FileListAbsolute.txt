@@ -1,0 +1,4 @@
+C:\Users\0dmin\source\repos\GITrep\GibddApp\ClassLibrary1\bin\Release\ClassLibrary1.dll
+C:\Users\0dmin\source\repos\GITrep\GibddApp\ClassLibrary1\bin\Release\ClassLibrary1.pdb
+C:\Users\0dmin\source\repos\GITrep\GibddApp\ClassLibrary1\obj\Release\ClassLibrary1.dll
+C:\Users\0dmin\source\repos\GITrep\GibddApp\ClassLibrary1\obj\Release\ClassLibrary1.pdb

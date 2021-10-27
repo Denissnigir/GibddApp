@@ -62,5 +62,6 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+        <Button Grid.Row="2" Height="35" Width="300" Content="Добавить новое ВУ" FontSize="18"/>
     </Grid>
 </Window>

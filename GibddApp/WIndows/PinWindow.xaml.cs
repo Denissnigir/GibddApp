@@ -21,10 +21,12 @@ namespace GibddApp.WIndows
     public partial class PinWindow : Window
     {
         public User userData;
-        public PinWindow(User user)
+        public Auth auth;
+        public PinWindow(User user, Auth auth)
         {
             InitializeComponent();
             userData = user;
+            this.auth = auth;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,6 +40,7 @@ namespace GibddApp.WIndows
             {
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.Show();
+                auth.Close();
                 this.Close();
             } else if(PinTB.Text == "")
             {

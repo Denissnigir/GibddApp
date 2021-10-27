@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\0dmin\source\repos\GITrep\GibddApp\GibddApp\App.xaml
-7907210187
+8-1296804742
 2-1198118946
-351015027811
+36-1954973850
 221585931227
-MainWindow.xaml;WIndows\DriverAdd.xaml;WIndows\DriverChange.xaml;WIndows\LicencePrint.xaml;WIndows\MainMenu.xaml;WIndows\MainMenuLicence.xaml;WIndows\PinWindow.xaml;
+MainWindow.xaml;WIndows\AddLicence.xaml;WIndows\DriverAdd.xaml;WIndows\DriverChange.xaml;WIndows\LicencePrint.xaml;WIndows\MainMenu.xaml;WIndows\MainMenuLicence.xaml;WIndows\PinWindow.xaml;
 
-False
+True
 

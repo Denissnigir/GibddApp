@@ -151,6 +151,12 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>GibddDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="WIndows\AddLicence.xaml.cs">
+      <DependentUpon>AddLicence.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WIndows\Auth.xaml.cs">
+      <DependentUpon>Auth.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WIndows\DriverAdd.xaml.cs">
       <DependentUpon>DriverAdd.xaml</DependentUpon>
     </Compile>
@@ -169,18 +175,18 @@
     <Compile Include="WIndows\PinWindow.xaml.cs">
       <DependentUpon>PinWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="WIndows\AddLicence.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WIndows\Auth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WIndows\DriverAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
